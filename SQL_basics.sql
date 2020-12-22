@@ -151,3 +151,69 @@ where first_name like 'b%%';
 select *
 from employees
 where emp_no in (10001,10002,10005,10019,10024);
+
+
+
+# we are selecting every columns from the employees table whose emp_no is less thhan 16000 and last name starts with b or c
+select * 
+from employees
+where emp_no < 16000 and (last_name like 'b%' or last_name like 'c%');
+
+# lets find all the current or previous employees with first names Irena, Vidya, or Maya
+select *
+from employees
+where first_name in ('Irena', 'Vidya', 'Maya');
+# NUMBER OF ROWS RETURNED = 709
+
+# we can try using or to see if we can get the same results for the above scenario
+select *
+from employees
+where first_name = 'Irena' or first_name = 'Vidya' or first_name = 'Maya';
+# NUMBER OF ROWS RETURNED = 709
+
+# lets use the same scenario but lets filter to only get males
+select *
+from employees
+where (first_name = 'Irena' or first_name = 'Vidya' or first_name = 'Maya') and gender = 'M';
+
+# lets get all the employees whose last name starts with E
+select *
+from employees
+where last_name like 'E%';
+
+
+# lets get all the employees whose last name starts with E and ends with E
+select *
+from employees
+where last_name like 'E%' and last_name like '%E';
+
+
+# lets get all the employees whose last name ends with E but does not start with E
+select *
+from employees
+where last_name like '%E' and last_name not like 'E%';
+
+# find all the current or previous employees who were hired in the 90s
+select *
+from employees
+where hire_date like '199%-%%-%%';
+
+# find all the current or previous employees who were born in christmas day
+select *
+from employees
+where birth_date like '%%%%-12-25';
+
+# find all the current or previous employees who were born in christmas day and were hired in 90s
+select *
+from employees
+where birth_date like '%%%%-12-25' and hire_date like '199%-%%-%%';
+
+#find all the current or previous employees with q in their last name
+select *
+from employees
+where last_name like '%q%';
+
+# find all the current or previous employees with q in their last name but not qu
+select *
+from employees
+where last_name like '%q%' and last_name not like '%qu%';
