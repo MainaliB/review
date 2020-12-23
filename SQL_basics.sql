@@ -217,3 +217,13 @@ where last_name like '%q%';
 select *
 from employees
 where last_name like '%q%' and last_name not like '%qu%';
+
+# USING ORDER BY
+select first_name, last_name
+from employees
+order by last_name ASC;
+
+# you can also chain order by clause
+select first_name, last_name
+from employees
+order by last_name ASC, first_name DESC;
