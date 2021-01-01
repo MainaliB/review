@@ -227,3 +227,49 @@ order by last_name ASC;
 select first_name, last_name
 from employees
 order by last_name ASC, first_name DESC;
+
+# lets find all the current or previous employees with first names Irena, Vidya, or Maya and get the results ordered by first name
+select first_name, last_name
+from employees
+where first_name in ('Irena', 'Vidya', 'Maya')
+order by first_name;
+
+# lets do the same thing as above but order by first_name and then last_name
+select first_name, last_name
+from employees
+where first_name in ('Irena', 'Vidya', 'Maya')
+order by first_name, last_name;
+
+# lets do the same thing as above but order by last_name and then first_name
+select first_name, last_name
+from employees
+where first_name in ('Irena', 'Vidya', 'Maya')
+order by last_name, first_name;
+
+# lets find all the employees born in 90s and on christmas and sort the results so that the oldest employee who was hired the last in the first result
+
+select first_name, last_name, birth_date, hire_date
+from employees
+where birth_date like '%%%%-12-25' and hire_date like '199%-%%-%%'
+order by birth_date ASC, hire_date DESC;
+
+# we can use limit to limit the number of results lets use the limit to get only 10 results in the above exercise
+select first_name, last_name, birth_date, hire_date
+from employees
+where birth_date like '%%%%-12-25' and hire_date like '199%-%%-%%'
+order by birth_date ASC, hire_date DESC
+limit 10;
+
+# concat function
+select concat ('Aarya ', 'Banskota');
+
+select concat(first_name,' ', last_name) as full_name 
+from employees;
+
+# like and not like
+select first_name, last_name
+from employees
+where first_name like 'B%' and last_name not like 'F%';
+
+
+#substr
