@@ -313,3 +313,21 @@ select curdate() as date_today;
 
 #CURTIME() returns the time formatted as HH:MM:SS.Example
 select curtime() as time_now;
+
+
+
+# The UNIX_TIMESTAMP() function is used to represent time as an integer. It will return the number of seconds since midnight January 1st, 1970. If you pass a date time value to UNIX_TIMESTAMP(), it will give you the number of seconds from the unix epoch to that date.
+
+select unix_timestamp(curdate()) as seconds_since_1stJan1970; # we can simply use unix_timestamp(), it will show the secods since jan 1970 till current date
+
+#another example
+select unix_timestamp() - unix_timestamp('1989-05-01');
+
+#another example
+select unix_timestamp('2020-05-05') - unix_timestamp('2013-02-26') as seconds_in_the_Army;
+
+
+# Some of the Numerical Functions in SQL
+select min(emp_no) as minimum_val_for_emp_no
+from employees;
+
