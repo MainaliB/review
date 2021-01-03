@@ -273,3 +273,43 @@ where first_name like 'B%' and last_name not like 'F%';
 
 
 #substr
+# used to extract part of the string.
+# need to supply the starting index and the length of the string that we want to extract
+# for example:
+select substr('abcdefgh', 2, 5); # here the starting index is 2. Here the index count starts at 1 and we the length we want is 5
+
+
+# we can convert to upper or lower case by using UPPER() and LOWER() function. For example
+select upper('abcde'), lower('ABCDE');
+
+
+# lets try some example
+select concat(first_name, ' ', last_name) as full_name
+from employees
+where last_name like 'E%E';
+
+# lets convert everything to upper case to the results from above query
+select concat(upper(first_name), ' ', upper(last_name)) as FULL_NAME
+from employees
+where last_name like 'E%E';
+
+
+
+# Replace
+# we can use replace function to manipulate string by replacing some values within the string.Replace function takes subject where replacement takes place, items to be replaced, and items to be replaced with. Example
+select replace('abcdeghh', 'ghh', 'fgh') as replacement_practice;
+
+select replace(123456789, 789, 'abc') as replacement_practice;
+
+select replace('abc123ghi789', '123', 'defjkl') as replacement_practice;
+
+#Date and Time Functions
+
+# NOW() returns current time in YYYY-MM-DD HH:MM:SS format. Example
+select now() as time_now;
+
+# CURDATE() returns just the current date with no time information in YYYY-MM-DD format. Example
+select curdate() as date_today;
+
+#CURTIME() returns the time formatted as HH:MM:SS.Example
+select curtime() as time_now;
